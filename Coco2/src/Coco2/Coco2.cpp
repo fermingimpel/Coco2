@@ -1,15 +1,14 @@
 #include "Coco2.h"
 
-#include "glew.h"
-#include "glfw3.h"
-
+#include <glew/glew.h>
+#include <glfw/glfw3.h>
 #include <iostream>
 
 #include "Window/Window.h"
 
 namespace Coco2Engine {
 	Coco2::Coco2() {
-		_window = nullptr;
+		MainWindow = nullptr;
 	}
 
 	bool Coco2::Coco2_StartEngine(int width, int height, const char* windowName) {
@@ -39,19 +38,19 @@ namespace Coco2Engine {
 		
 		std::cout << "Windows Hint setted" << std::endl;
 		
-		_window = new Window();
+		MainWindow = new Window();
 		
-		if (!_window) {
+		if (!MainWindow) {
 			std::cout << "Failed to create Class Window" << std::endl;
 			return false;
 		}
 		
-		_window->CreateWindow(width, height, windowName, NULL);
+		MainWindow->CreateWindow(width, height, windowName, NULL);
 		
 		int bufferWidth;
 		int bufferHeight;
 		
-		glfwGetFramebufferSize(_window->MainWindow, &bufferWidth, &bufferHeight);
+		glfwGetFramebufferSize(MainWindow->MainWindow, &bufferWidth, &bufferHeight);
 
 		glEnable(GL_DEPTH);
 
@@ -59,26 +58,26 @@ namespace Coco2Engine {
 	}
 
 	void Coco2::Coco2_UpdateEngine() {
-		while (_window->CheckIfWindowIsOpen()) {
+		while (MainWindow->CheckIfWindowIsOpen()) {
 			Update();
 			glfwPollEvents();
 		}
 	}
 
 	void Coco2::Coco2_EndEngine() {
-		if (_window) {
-			delete _window;
-			_window = nullptr;
+		if (MainWindow) {
+			delete MainWindow;
+			MainWindow = nullptr;
 		}
 
 	}
 
 	void Coco2::Coco2_ClearWindow(float redColour, float greenColour, float blueColour) {
-		_window->ClearWindow(redColour, greenColour, blueColour);
+		MainWindow->ClearWindow(redColour, greenColour, blueColour);
 	}
 
 	void Coco2::Coco2_SwapBuffers() {
-		_window->SwapBuffers();
+		MainWindow->SwapBuffers();
 	}
 
 }

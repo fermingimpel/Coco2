@@ -5,7 +5,6 @@
 
 class Game : public Coco2Engine::Coco2{
 
-
 private:
 
 protected:

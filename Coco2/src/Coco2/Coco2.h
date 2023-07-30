@@ -1,6 +1,7 @@
 #ifndef COCO2_H
 #define COCO2_H
 
+#include "Extras/Coco2Maths.h"
 
 namespace Coco2Engine {
 
@@ -10,7 +11,7 @@ class Window;
 	{
 
 	private:
-		Window* _window = nullptr;
+		Window* MainWindow = nullptr;
 
 	protected:
 		Coco2();

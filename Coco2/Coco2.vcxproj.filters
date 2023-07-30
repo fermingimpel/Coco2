@@ -14,6 +14,30 @@
     <Filter Include="Source\Coco2">
       <UniqueIdentifier>{31ecca02-6fbf-4f3e-bb57-d135b8901a96}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source\Entities">
+      <UniqueIdentifier>{22d41703-3333-4a39-8edd-4a04304dcd30}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Entities\EntityBase">
+      <UniqueIdentifier>{1522c436-144b-40e3-a0c9-ee819fdea6de}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Extras">
+      <UniqueIdentifier>{5ea45790-65ad-4fed-a6fc-7d6b20c03541}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Entities\EntityBase\Shapes">
+      <UniqueIdentifier>{49d5d9e4-7d6b-4b69-8e73-27a2d4795dd2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Entities\EntityBase\Shapes\2D">
+      <UniqueIdentifier>{6e0fa2f8-f0db-4ee6-b38d-72cbb17b18e4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Entities\EntityBase\Shapes\2D\Triangle">
+      <UniqueIdentifier>{3bed5625-26c8-4296-b2e4-2bd1f0341f33}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Entities\EntityBase\Shapes\2D\Square">
+      <UniqueIdentifier>{bc94883c-5252-4933-8be8-0689949651be}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Entities\EntityBase\Shapes\3D">
+      <UniqueIdentifier>{ff2778f6-49dd-4592-b155-fbfa567d34dc}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Window\Window.cpp">
@@ -22,6 +46,21 @@
     <ClCompile Include="src\Coco2\Coco2.cpp">
       <Filter>Source\Coco2</Filter>
     </ClCompile>
+    <ClCompile Include="src\Entities\EntityBase.cpp">
+      <Filter>Source\Entities\EntityBase</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Entities\Shapes\Shape.cpp">
+      <Filter>Source\Entities\EntityBase\Shapes</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Entities\Shapes\2D\Triangle\Triangle.cpp">
+      <Filter>Source\Entities\EntityBase\Shapes\2D\Triangle</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Entities\Shapes\2D\Square\Square.cpp">
+      <Filter>Source\Entities\EntityBase\Shapes\2D\Square</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Extras\Coco2Maths.cpp">
+      <Filter>Source\Extras</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Window\Window.h">
@@ -29,6 +68,21 @@
     </ClInclude>
     <ClInclude Include="src\Coco2\Coco2.h">
       <Filter>Source\Coco2</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Entities\EntityBase.h">
+      <Filter>Source\Entities\EntityBase</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Entities\Shapes\Shape.h">
+      <Filter>Source\Entities\EntityBase\Shapes</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Entities\Shapes\2D\Triangle\Triangle.h">
+      <Filter>Source\Entities\EntityBase\Shapes\2D\Triangle</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Entities\Shapes\2D\Square\Square.h">
+      <Filter>Source\Entities\EntityBase\Shapes\2D\Square</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Extras\Coco2Maths.h">
+      <Filter>Source\Extras</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

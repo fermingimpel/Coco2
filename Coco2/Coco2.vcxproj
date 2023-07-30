@@ -20,10 +20,20 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Coco2\Coco2.cpp" />
+    <ClCompile Include="src\Entities\EntityBase.cpp" />
+    <ClCompile Include="src\Entities\Shapes\2D\Square\Square.cpp" />
+    <ClCompile Include="src\Entities\Shapes\2D\Triangle\Triangle.cpp" />
+    <ClCompile Include="src\Entities\Shapes\Shape.cpp" />
+    <ClCompile Include="src\Extras\Coco2Maths.cpp" />
     <ClCompile Include="src\Window\Window.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Coco2\Coco2.h" />
+    <ClInclude Include="src\Entities\EntityBase.h" />
+    <ClInclude Include="src\Entities\Shapes\2D\Square\Square.h" />
+    <ClInclude Include="src\Entities\Shapes\2D\Triangle\Triangle.h" />
+    <ClInclude Include="src\Entities\Shapes\Shape.h" />
+    <ClInclude Include="src\Extras\Coco2Maths.h" />
     <ClInclude Include="src\Window\Window.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
@@ -133,7 +143,7 @@
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <PrecompiledHeaderFile>
       </PrecompiledHeaderFile>
-      <AdditionalIncludeDirectories>$(ProjectDir)Libs\glew\include;$(ProjectDir)Libs\glfw\include;$(ProjectDir)src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)Libs\glew\include;$(ProjectDir)Libs\glfw\include;$(ProjectDir)src;$(ProjectDir)Libs\glm;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -143,7 +153,7 @@
       <AdditionalDependencies>opengl32.lib;glew32.lib;glfw3.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <Lib>
-      <AdditionalLibraryDirectories>$(ProjectDir)Libs\glew\lib;$(ProjectDir)\Libs\glfw\lib;</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(ProjectDir)Libs\glew\lib;$(ProjectDir)Libs\glfw\lib;$(ProjectDir)Libs\glm</AdditionalLibraryDirectories>
       <AdditionalDependencies>opengl32.lib;glew32.lib;glfw3.lib</AdditionalDependencies>
     </Lib>
   </ItemDefinitionGroup>

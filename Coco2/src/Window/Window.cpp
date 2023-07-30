@@ -1,7 +1,7 @@
 #include "Window.h"
 
-#include "glew.h"
-#include "glfw3.h"
+#include <glew/glew.h>
+#include <glfw/glfw3.h>
 
 #include <iostream>
 
