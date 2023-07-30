@@ -25,6 +25,7 @@
     <ClCompile Include="src\Entities\Shapes\2D\Triangle\Triangle.cpp" />
     <ClCompile Include="src\Entities\Shapes\Shape.cpp" />
     <ClCompile Include="src\Extras\Coco2Maths.cpp" />
+    <ClCompile Include="src\Shader\Shader.cpp" />
     <ClCompile Include="src\Window\Window.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -34,7 +35,12 @@
     <ClInclude Include="src\Entities\Shapes\2D\Triangle\Triangle.h" />
     <ClInclude Include="src\Entities\Shapes\Shape.h" />
     <ClInclude Include="src\Extras\Coco2Maths.h" />
+    <ClInclude Include="src\Shader\Shader.h" />
     <ClInclude Include="src\Window\Window.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Shaders\fragment.shader" />
+    <None Include="Shaders\vertex.shader" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
@@ -154,7 +160,7 @@
     </Link>
     <Lib>
       <AdditionalLibraryDirectories>$(ProjectDir)Libs\glew\lib;$(ProjectDir)Libs\glfw\lib;$(ProjectDir)Libs\glm</AdditionalLibraryDirectories>
-      <AdditionalDependencies>opengl32.lib;glew32.lib;glfw3.lib</AdditionalDependencies>
+      <AdditionalDependencies>opengl32.lib;glew32s.lib;glfw3.lib</AdditionalDependencies>
     </Lib>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">

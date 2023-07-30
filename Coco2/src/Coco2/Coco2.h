@@ -2,6 +2,8 @@
 #define COCO2_H
 
 #include "Extras/Coco2Maths.h"
+#include "Shader/Shader.h"
+#include "Entities/Shapes/2D/Triangle/Triangle.h"
 
 namespace Coco2Engine {
 
@@ -12,7 +14,7 @@ class Window;
 
 	private:
 		Window* MainWindow = nullptr;
-
+		Shader* MainShader = nullptr;
 	protected:
 		Coco2();
 

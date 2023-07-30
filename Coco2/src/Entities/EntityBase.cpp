@@ -1,5 +1,8 @@
 #include "EntityBase.h"
 
+#include <glew/glew.h>
+#include <glfw/glfw3.h>
+
 namespace Coco2Engine {
 
 	void EntityBase::UpdateMatrixData() {
@@ -29,9 +32,12 @@ namespace Coco2Engine {
 
 		UpdateMatrixData();
 		UpdateTransformsData();
+
+		//EntityShader = Shader;
 	}
 
 	EntityBase::~EntityBase() {
+	
 	}
 
 	void EntityBase::SetEntityPosition(Vector3 NewPosition) {

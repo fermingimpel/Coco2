@@ -16,10 +16,12 @@ namespace Coco2Engine {
 			return false;
 		}
 
-		glfwMakeContextCurrent(MainWindow);
-
 		return true;
 
+	}
+
+	void Window::InitWindow() {
+		glfwMakeContextCurrent(MainWindow);
 	}
 
 	void Window::DestroyWindow() {

@@ -9,12 +9,12 @@ namespace Coco2Engine {
 	Quaternion Coco2Engine::Coco2_EulerToQuat(Vector3 Euler) {
 		Euler *= Deg2Rad();
 
-		float cy = cos(Euler.z * 0.5);
-		float sy = sin(Euler.z * 0.5);
-		float cp = cos(Euler.x * 0.5);
-		float sp = sin(Euler.x * 0.5);
-		float cr = cos(Euler.y * 0.5);
-		float sr = sin(Euler.y * 0.5);
+		float cy = cos(Euler.z * 0.5f);
+		float sy = sin(Euler.z * 0.5f);
+		float cp = cos(Euler.x * 0.5f);
+		float sp = sin(Euler.x * 0.5f);
+		float cr = cos(Euler.y * 0.5f);
+		float sr = sin(Euler.y * 0.5f);
 
 		glm::quat q;
 		q.w = cr * cp * cy + sr * sp * sy;

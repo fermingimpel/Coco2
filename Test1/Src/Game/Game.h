@@ -8,6 +8,8 @@ class Game : public Coco2Engine::Coco2{
 private:
 
 protected:
+	Coco2Engine::Triangle* TheTriangle;
+
 	void Update() override;
 
 public:

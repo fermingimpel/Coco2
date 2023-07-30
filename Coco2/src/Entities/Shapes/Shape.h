@@ -4,6 +4,14 @@
 namespace Coco2Engine {
 
 	class Shape : public EntityBase {
+
+	private:
+
+	protected:
+
+	public:
+		Shape();
+
 	};
 
 }

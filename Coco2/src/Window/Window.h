@@ -18,6 +18,7 @@ namespace Coco2Engine {
 		Window();
 
 		bool CreateWindow(int width, int height, const char* windowName, GLFWmonitor* fullScreen);
+		void InitWindow();
 		void DestroyWindow();
 		bool CheckIfWindowIsOpen();
 		void ClearWindow(float r, float g, float b);

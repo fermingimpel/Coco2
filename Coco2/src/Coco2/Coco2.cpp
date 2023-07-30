@@ -9,6 +9,7 @@
 namespace Coco2Engine {
 	Coco2::Coco2() {
 		MainWindow = nullptr;
+		MainShader = nullptr;
 	}
 
 	bool Coco2::Coco2_StartEngine(int width, int height, const char* windowName) {
@@ -22,15 +23,6 @@ namespace Coco2Engine {
 		}
 		
 		std::cout << "GLFW Initialized" << std::endl;
-		
-		if (!glewInit() != GLEW_OK) {
-			std::cout << "GLEW Initialization failed" << std::endl;
-			glfwTerminate();
-			return false;
-		
-		}
-		
-		std::cout << "GLEW Initialized" << std::endl;
 		
 		glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
 		glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
@@ -52,7 +44,29 @@ namespace Coco2Engine {
 		
 		glfwGetFramebufferSize(MainWindow->MainWindow, &bufferWidth, &bufferHeight);
 
+		MainWindow->InitWindow();
+
+		glewExperimental = GL_TRUE;
+
+		if (glewInit() != GLEW_OK) {
+			std::cout << "GLEW Initialization failed" << std::endl;
+			glfwTerminate();
+			return false;
+
+		}
+
+		std::cout << "GLEW Initialized" << std::endl;
+
 		glEnable(GL_DEPTH);
+
+		MainShader = new Shader();
+		if (!MainShader) {
+			std::cout << "Failed to create Class Shader" << std::endl;
+			return false;
+		}
+		
+		MainShader->CreateFromLocation("res/Shaders/vertex.shader", "res/Shaders/fragment.shader");
+		
 
 		return true;
 	}
@@ -68,6 +82,11 @@ namespace Coco2Engine {
 		if (MainWindow) {
 			delete MainWindow;
 			MainWindow = nullptr;
+		}
+		if (MainShader) {
+			MainShader->ClearShader();
+			delete MainShader;
+			MainShader = nullptr;
 		}
 
 	}

@@ -2,7 +2,11 @@
 #define ENTITYBASE_H
 
 #include "Extras/Coco2Maths.h"
+
+#include "Shader/Shader.h"
 		
+#include <vector>
+
 namespace Coco2Engine {
 
 	class EntityBase {
@@ -30,8 +34,22 @@ namespace Coco2Engine {
 		};
 
 	protected:
+		Shader* EntityShader;
 		Transform transform;
 		Matrix matrix;
+
+		unsigned int VertexSize;
+
+		float* VertexBuffer;
+		unsigned int VertexBufferObject;
+		unsigned int VertexArrayObject;
+		unsigned int IndexBufferObject;
+
+		unsigned int UniformPosition;
+
+		unsigned int VertexShader;
+		unsigned int FragmentShader;
+		unsigned int ShaderProgram;
 
 		void UpdateMatrixData();
 		void UpdateTransformsData();
@@ -52,6 +70,8 @@ namespace Coco2Engine {
 		void SetEntityPosition(Vector3 NewPosition);
 		void SetEntityRotation(Vector3 NewRotation);
 		void SetEntityScale(Vector3 NewScale);
+
+		virtual void Draw() = 0;
 	};
 
 }
