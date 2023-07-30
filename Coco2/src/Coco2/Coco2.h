@@ -4,6 +4,7 @@
 #include "Extras/Coco2Maths.h"
 #include "Shader/Shader.h"
 #include "Entities/Shapes/2D/Triangle/Triangle.h"
+#include "Entities/Shapes/2D/Square/Square.h"
 
 namespace Coco2Engine {
 

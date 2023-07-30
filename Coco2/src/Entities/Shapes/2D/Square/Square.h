@@ -3,8 +3,19 @@
 
 namespace Coco2Engine {
 
-    class Square :
-        public Shape {
+    class Square : public Shape {
+
+
+    private:
+
+    protected:
+
+    public:
+        Square(Shader* ShaderToUse);
+
+        virtual void Draw() override;
+
+
     };
 
 }

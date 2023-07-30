@@ -43,7 +43,7 @@ namespace Coco2Engine {
 		float* VertexBuffer;
 		unsigned int VertexBufferObject;
 		unsigned int VertexArrayObject;
-		unsigned int IndexBufferObject;
+		unsigned int ElementBufferObject;
 
 		unsigned int UniformPosition;
 
