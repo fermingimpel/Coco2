@@ -16,7 +16,7 @@ namespace Coco2Engine {
 		transform.right = Coco2_QuatXVec3(transform.rotationQuaternion, glm::vec3(1, 0, 0));
 	}
 
-	EntityBase::EntityBase() {
+	EntityBase::EntityBase(Shader* ShaderToUse) {
 		matrix.model = glm::mat4(1.0f);
 		matrix.translate = glm::mat4(1.0f);
 		matrix.rotationX = glm::mat4(1.0f);
@@ -33,7 +33,7 @@ namespace Coco2Engine {
 		UpdateMatrixData();
 		UpdateTransformsData();
 
-		//EntityShader = Shader;
+		EntityShader = ShaderToUse;
 	}
 
 	EntityBase::~EntityBase() {

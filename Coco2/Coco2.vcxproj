@@ -162,6 +162,9 @@
       <AdditionalLibraryDirectories>$(ProjectDir)Libs\glew\lib;$(ProjectDir)Libs\glfw\lib;$(ProjectDir)Libs\glm</AdditionalLibraryDirectories>
       <AdditionalDependencies>opengl32.lib;glew32s.lib;glfw3.lib</AdditionalDependencies>
     </Lib>
+    <PostBuildEvent>
+      <Command>copy /Y "$(SolutionDir)Coco2\Bin\Win64\Debug\Coco2.lib" "$(SolutionDir)Test1\Bin\Debug"</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>

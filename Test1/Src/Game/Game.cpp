@@ -11,7 +11,7 @@ void Game::Play() {
 void Game::Start() {
 	Coco2_StartEngine(800, 600, "Coco2");
 
-	TheTriangle = new Triangle();
+	TheTriangle = new Triangle(Coco2_GetShader());
 }
 
 void Game::Update() {

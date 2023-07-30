@@ -7,10 +7,9 @@
 
 namespace Coco2Engine {
 
-class Window;
+	class Window;
 
-	class Coco2
-	{
+	class Coco2 {
 
 	private:
 		Window* MainWindow = nullptr;
@@ -28,6 +27,7 @@ class Window;
 
 		void Coco2_ClearWindow(float redColour, float greenColour, float  blueColour);
 		void Coco2_SwapBuffers();
+		Shader* Coco2_GetShader() const {return MainShader;}
 	public:
 
 	};

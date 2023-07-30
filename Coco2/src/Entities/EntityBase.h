@@ -47,15 +47,11 @@ namespace Coco2Engine {
 
 		unsigned int UniformPosition;
 
-		unsigned int VertexShader;
-		unsigned int FragmentShader;
-		unsigned int ShaderProgram;
-
 		void UpdateMatrixData();
 		void UpdateTransformsData();
 
 	public:
-		EntityBase();
+		EntityBase(Shader* ShaderToUse);
 		~EntityBase();
 
 		Vector3 GetEntityPosition() const { return transform.position; }

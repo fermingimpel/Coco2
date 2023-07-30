@@ -2,7 +2,7 @@
 
 namespace Coco2Engine {
 
-	Shape::Shape() : EntityBase() {
+	Shape::Shape(Shader* ShaderToUse) : EntityBase(ShaderToUse) {
 
 	}
 

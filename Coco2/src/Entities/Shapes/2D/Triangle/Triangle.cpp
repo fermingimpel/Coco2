@@ -13,63 +13,8 @@ namespace Coco2Engine {
 			 0.0f,  0.5f, 0.0f
 	};
 
-	const char* vertexShaderSource = "#version 330 core\n"
-		"layout (location = 0) in vec3 aPos;\n"
-		"void main()\n"
-		"{\n"
-		"   gl_Position = vec4(aPos.x, aPos.y, aPos.z, 1.0);\n"
-		"}\0";
 
-	const char* fragmentShaderSource = "#version 330 core\n"
-		"out vec4 FragColor;\n"
-		"void main()\n"
-		"{\n"
-		"   FragColor = vec4(1.0f, 0.5f, 0.2f, 1.0f);\n"
-		"}\n\0";
-
-
-	Triangle::Triangle() : Shape() {
-
-		VertexShader = glCreateShader(GL_VERTEX_SHADER);
-
-		glShaderSource(VertexShader, 1, &vertexShaderSource, NULL);
-		glCompileShader(VertexShader);
-
-		int  success;
-		char infoLog[512];
-		glGetShaderiv(VertexShader, GL_COMPILE_STATUS, &success);
-
-
-		if (!success) {
-			glGetShaderInfoLog(VertexShader, 512, NULL, infoLog);
-			std::cout << "ERROR::SHADER::VERTEX::COMPILATION_FAILED\n" << infoLog << std::endl;
-		}
-
-		FragmentShader = glCreateShader(GL_FRAGMENT_SHADER);
-		glShaderSource(FragmentShader, 1, &fragmentShaderSource, NULL);
-		glCompileShader(FragmentShader);
-
-		glGetShaderiv(FragmentShader, GL_COMPILE_STATUS, &success);
-
-		if (!success) {
-			glGetShaderInfoLog(FragmentShader, 512, NULL, infoLog);
-			std::cout << "ERROR::SHADER::FRAGMENT::COMPILATION_FAILED\n" << infoLog << std::endl;
-		}
-
-		ShaderProgram = glCreateProgram();
-		glAttachShader(ShaderProgram, VertexShader);
-		glAttachShader(ShaderProgram, FragmentShader);
-		glLinkProgram(ShaderProgram);
-
-		glGetProgramiv(ShaderProgram, GL_LINK_STATUS, &success);
-		if (!success) {
-			glGetProgramInfoLog(ShaderProgram, 512, NULL, infoLog);
-			std::cout << "ERROR LINKIN SHADERS PROGRAM" << infoLog << std::endl;
-		}
-
-		glDeleteShader(VertexShader);
-		glDeleteShader(FragmentShader);
-
+	Triangle::Triangle(Shader* ShaderToUse) : Shape(ShaderToUse) {
 		glGenVertexArrays(1, &VertexArrayObject);
 		glGenBuffers(1, &VertexBufferObject);
 		glBindVertexArray(VertexArrayObject);
@@ -84,7 +29,7 @@ namespace Coco2Engine {
 	}
 
 	void Triangle::Draw() {
-		glUseProgram(ShaderProgram);
+		glUseProgram(EntityShader->GetShader());
 		glBindVertexArray(VertexArrayObject);
 		glDrawArrays(GL_TRIANGLES, 0, 3);
 		glUseProgram(0);

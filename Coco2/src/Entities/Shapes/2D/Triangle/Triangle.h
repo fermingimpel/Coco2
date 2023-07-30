@@ -12,7 +12,7 @@ namespace Coco2Engine {
 
 
 	public:
-		Triangle();
+		Triangle(Shader* ShaderToUse);
 
 		virtual void Draw() override;
 	};
