@@ -1,16 +1,21 @@
 #include <iostream>
 
-#include "Coco2/Coco2.h"
+#include "Game/Game.h"
+
+using namespace Coco2Engine;
 
 int main() {
 
-	std::cout << "ASD" << std::endl;
+	Game* game = new Game();
 
-	Coco2* coco = new Coco2();
+	if (game) {
 
-	coco->Print();
+		game->Start();
+		game->Play();
+		game->End();
 
-	delete coco;
+		delete game;
+	}
 
 	return 0;
 }
