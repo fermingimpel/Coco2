@@ -9,9 +9,9 @@ namespace Coco2Engine {
 
 	void Triangle::SetVertexsAndIndex() {
 		EntityVertexs = {
-			-0.5f, -0.5f, 0.0f,
-			 0.5f, -0.5f, 0.0f,
-			 0.0f,  0.5f, 0.0f
+			-0.5f, -0.5f, 0.0f, 1.0f, 0.0f, 0.0f,
+			 0.5f, -0.5f, 0.0f,	0.0f, 1.0f, 0.0f,
+			 0.0f,  0.5f, 0.0f,	0.0f, 0.0f, 1.0f
 		};
 	}
 
