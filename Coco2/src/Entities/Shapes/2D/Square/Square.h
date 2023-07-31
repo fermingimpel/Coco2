@@ -9,11 +9,11 @@ namespace Coco2Engine {
     private:
 
     protected:
-
+      virtual  void SetVertexsAndIndex() override;
     public:
         Square(Shader* ShaderToUse);
 
-        virtual void Draw() override;
+        virtual void Draw();
 
 
     };

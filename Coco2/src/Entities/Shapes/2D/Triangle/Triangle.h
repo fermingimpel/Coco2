@@ -9,7 +9,7 @@ namespace Coco2Engine {
 
 	protected:
 
-
+		virtual void SetVertexsAndIndex() override;
 
 	public:
 		Triangle(Shader* ShaderToUse);

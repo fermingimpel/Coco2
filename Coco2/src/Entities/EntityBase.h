@@ -38,6 +38,9 @@ namespace Coco2Engine {
 		Transform transform;
 		Matrix matrix;
 
+		std::vector<float> EntityVertexs;
+		std::vector<unsigned int> EntityIndexs;
+
 		unsigned int VertexSize;
 
 		float* VertexBuffer;
@@ -50,6 +53,9 @@ namespace Coco2Engine {
 		void UpdateMatrixData();
 		void UpdateTransformsData();
 
+		virtual void BindBuffers();
+		virtual void BindIndexs();
+		virtual void SetVertexsAndIndex();
 	public:
 		EntityBase(Shader* ShaderToUse);
 		~EntityBase();
