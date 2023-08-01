@@ -5,6 +5,8 @@
 #include <iostream>
 
 #include "Window/Window.h"
+#include "Shader/Shader.h"
+#include "Camera/Camera.h"
 
 namespace Coco2Engine {
 	Coco2::Coco2() {
@@ -66,7 +68,12 @@ namespace Coco2Engine {
 		}
 		
 		MainShader->CreateFromLocation("res/Shaders/vertex.shader", "res/Shaders/fragment.shader");
-		
+	
+		MainCamera = new Camera(Coco2_GetShader());
+		if (!MainCamera) {
+			std::cout << "Failed to create Class Camera" << std::endl;
+			return false;
+		}
 
 		return true;
 	}

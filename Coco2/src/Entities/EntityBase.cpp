@@ -10,7 +10,7 @@
 namespace Coco2Engine {
 
 	void EntityBase::UpdateMatrixData() {
-		matrix.model = matrix.translate * matrix.rotationX * matrix.rotationY * matrix.rotationZ * matrix.scale;
+		ModelMatrix.model = ModelMatrix.translate * ModelMatrix.rotationX * ModelMatrix.rotationY * ModelMatrix.rotationZ * ModelMatrix.scale;
 	}
 
 	void EntityBase::UpdateTransformsData() {
@@ -21,7 +21,7 @@ namespace Coco2Engine {
 	}
 
 	void EntityBase::UpdateMVP() {
-		glUniformMatrix4fv(UniformModelMatrix, 1, GL_FALSE, glm::value_ptr(matrix.model));
+		glUniformMatrix4fv(UniformModelMatrix, 1, GL_FALSE, glm::value_ptr(ModelMatrix.model));
 	}
 
 	void EntityBase::BindBuffers() {
@@ -46,7 +46,9 @@ namespace Coco2Engine {
 		glBindBuffer(GL_ARRAY_BUFFER, 0);
 		glBindVertexArray(0);
 
-		UniformModelMatrix = glGetUniformLocation(EntityShader->GetShader(), "transform");
+		UniformModelMatrix = glGetUniformLocation(EntityShader->GetShader(), "model");
+		UniformViewMatrix = glGetUniformLocation(EntityShader->GetShader(), "view");
+		UniformProjectionMatrix = glGetUniformLocation(EntityShader->GetShader(), "projection");
 		UniformUseTexture = glGetUniformLocation(EntityShader->GetShader(), "useTexture");
 	}
 
@@ -68,12 +70,12 @@ namespace Coco2Engine {
 	void EntityBase::SetVertexsAndIndex() {}
 
 	EntityBase::EntityBase(Shader* ShaderToUse) {
-		matrix.model = glm::mat4(1.0f);
-		matrix.translate = glm::mat4(1.0f);
-		matrix.rotationX = glm::mat4(1.0f);
-		matrix.rotationY = glm::mat4(1.0f);
-		matrix.rotationZ = glm::mat4(1.0f);
-		matrix.scale = glm::mat4(1.0f);
+		ModelMatrix.model = glm::mat4(1.0f);
+		ModelMatrix.translate = glm::mat4(1.0f);
+		ModelMatrix.rotationX = glm::mat4(1.0f);
+		ModelMatrix.rotationY = glm::mat4(1.0f);
+		ModelMatrix.rotationZ = glm::mat4(1.0f);
+		ModelMatrix.scale = glm::mat4(1.0f);
 
 		transform.position = { 0,0,0 };
 		transform.scale = { 1,1,1 };
@@ -96,16 +98,16 @@ namespace Coco2Engine {
 
 	void EntityBase::SetEntityPosition(Vector3 NewPosition) {
 		transform.position = NewPosition;
-		matrix.translate = glm::translate(glm::mat4(1.0f), transform.position);
+		ModelMatrix.translate = glm::translate(glm::mat4(1.0f), transform.position);
 		UpdateMatrixData();
 	}
 
 	void EntityBase::SetEntityRotation(Vector3 NewRotation) {
 		transform.rotation = NewRotation;
 
-		matrix.rotationX = glm::rotate(glm::mat4(1.0f), glm::radians(NewRotation.x), glm::vec3(1.0f, 0.0f, 0.0f));
-		matrix.rotationY = glm::rotate(glm::mat4(1.0f), glm::radians(NewRotation.y), glm::vec3(0.0f, 1.0f, 0.0f));
-		matrix.rotationZ = glm::rotate(glm::mat4(1.0f), glm::radians(NewRotation.z), glm::vec3(0.0f, 0.0f, 1.0f));
+		ModelMatrix.rotationX = glm::rotate(glm::mat4(1.0f), glm::radians(NewRotation.x), glm::vec3(1.0f, 0.0f, 0.0f));
+		ModelMatrix.rotationY = glm::rotate(glm::mat4(1.0f), glm::radians(NewRotation.y), glm::vec3(0.0f, 1.0f, 0.0f));
+		ModelMatrix.rotationZ = glm::rotate(glm::mat4(1.0f), glm::radians(NewRotation.z), glm::vec3(0.0f, 0.0f, 1.0f));
 
 		UpdateMatrixData();
 		UpdateTransformsData();
@@ -113,7 +115,7 @@ namespace Coco2Engine {
 
 	void EntityBase::SetEntityScale(Vector3 NewScale) {
 		transform.scale = NewScale;
-		matrix.scale = glm::scale(glm::mat4(1.0f), transform.scale);
+		ModelMatrix.scale = glm::scale(glm::mat4(1.0f), transform.scale);
 		UpdateMatrixData();
 	}
 

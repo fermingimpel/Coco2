@@ -31,6 +31,10 @@ namespace Coco2Engine {
 		glUseProgram(EntityShader->GetShader());
 		glBindVertexArray(VertexArrayObject);
 
+		UpdateMVP();
+		glUniform1i(UniformUseTexture, HasTextureLoaded);
+
+
 		if (HasTextureLoaded) {
 			EntityTexture->StartUsingTexture();
 			glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);

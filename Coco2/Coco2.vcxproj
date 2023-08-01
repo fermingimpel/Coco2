@@ -19,6 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\Camera\Camera.cpp" />
     <ClCompile Include="src\Coco2\Coco2.cpp" />
     <ClCompile Include="src\Entities\EntityBase.cpp" />
     <ClCompile Include="src\Entities\Shapes\2D\Square\Square.cpp" />
@@ -31,6 +32,7 @@
     <ClCompile Include="src\Window\Window.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\Camera\Camera.h" />
     <ClInclude Include="src\Coco2\Coco2.h" />
     <ClInclude Include="src\Entities\EntityBase.h" />
     <ClInclude Include="src\Entities\Shapes\2D\Square\Square.h" />

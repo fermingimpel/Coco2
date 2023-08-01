@@ -12,9 +12,13 @@ void Game::Start() {
 	Coco2_StartEngine(800, 600, "Coco2");
 
 	TheTriangle = new Triangle(Coco2_GetShader());
+	TheTriangle->LoadTexture("res/Art/2D", "theolean.jpg");
+	TheTriangle->SetEntityPosition(Vector3(0.5f, 0, 0));
 
 	TheSquare = new Square(Coco2_GetShader());
-	TheTriangle->LoadTexture("res/Art/2D", "theolean.jpg");
+	TheSquare->LoadTexture("res/Art/2D", "theolean.jpg");
+	TheSquare->SetEntityPosition(Vector3(-0.5f, 0, 0));
+
 }
 
 void Game::Update(float DeltaTime) {
@@ -22,9 +26,10 @@ void Game::Update(float DeltaTime) {
 
 	//TheTriangle->SetEntityPosition(TheTriangle->GetEntityPosition() + Vector3(0.01f, 0, 0));
 	TheTriangle->SetEntityRotation(TheTriangle->GetEntityRotationEuler() + Vector3(0, 0, 90 * DeltaTime));
+	TheSquare->SetEntityRotation(TheTriangle->GetEntityRotationEuler() + Vector3(0, 0, -90 * DeltaTime));
 
 	TheTriangle->Draw();
-	//TheSquare->Draw();
+	TheSquare->Draw();
 
 	Coco2_SwapBuffers();
 }

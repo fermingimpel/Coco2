@@ -45,7 +45,7 @@ namespace Coco2Engine {
 
 		//Transforms
 		Transform transform;
-		Matrix matrix;
+		Matrix ModelMatrix;
 
 		void UpdateMatrixData();
 		void UpdateTransformsData();
@@ -66,6 +66,8 @@ namespace Coco2Engine {
 		unsigned int ElementBufferObject;
 
 		unsigned int UniformModelMatrix;
+		unsigned int UniformViewMatrix;
+		unsigned int UniformProjectionMatrix;
 		unsigned int UniformUseTexture; 
 
 
