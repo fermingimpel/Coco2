@@ -3,6 +3,9 @@
 #include <glew/glew.h>
 #include <glfw/glfw3.h>
 
+#include "Extras/GameplayStatics.h"
+#include "Shader/Shader.h"
+
 namespace Coco2Engine {
 
 
@@ -21,14 +24,14 @@ namespace Coco2Engine {
 		};
 	}
 
-	Square::Square(Shader* ShaderToUse) : Shape(ShaderToUse) {
+	Square::Square() : Shape() {
 		SetVertexsAndIndex();
 		BindBuffers();
 		BindIndexs();
 	}
 
 	void Square::Draw() {
-		glUseProgram(EntityShader->GetShader());
+		glUseProgram(GetMainShader()->GetShader());
 		glBindVertexArray(VertexArrayObject);
 
 		UpdateMVP();

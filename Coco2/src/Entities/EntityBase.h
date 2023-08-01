@@ -3,8 +3,6 @@
 
 #include "Extras/Coco2Maths.h"
 
-#include "Shader/Shader.h"
-
 #include "Texture/Texture.h"
 		
 #include <vector>
@@ -37,7 +35,6 @@ namespace Coco2Engine {
 
 	protected:
 		//Visuals
-		Shader* EntityShader;
 		Texture* EntityTexture;
 		bool HasTextureLoaded;
 
@@ -78,7 +75,7 @@ namespace Coco2Engine {
 		//-x-
 
 	public:
-		EntityBase(Shader* ShaderToUse);
+		EntityBase();
 		~EntityBase();
 
 		//Transforms

@@ -11,11 +11,11 @@ void Game::Play() {
 void Game::Start() {
 	Coco2_StartEngine(800, 600, "Coco2");
 
-	TheTriangle = new Triangle(Coco2_GetShader());
+	TheTriangle = new Triangle();
 	TheTriangle->LoadTexture("res/Art/2D", "theolean.jpg");
 	TheTriangle->SetEntityPosition(Vector3(0.5f, 0, 0));
 
-	TheSquare = new Square(Coco2_GetShader());
+	TheSquare = new Square();
 	TheSquare->LoadTexture("res/Art/2D", "theolean.jpg");
 	TheSquare->SetEntityPosition(Vector3(-0.5f, 0, 0));
 

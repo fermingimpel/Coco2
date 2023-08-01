@@ -4,14 +4,15 @@
 #include <glfw/glfw3.h>
 #include <iostream>
 
+#include "Extras/GameplayStatics.h"
+
 #include "Window/Window.h"
 #include "Shader/Shader.h"
 #include "Camera/Camera.h"
 
 namespace Coco2Engine {
 	Coco2::Coco2() {
-		MainWindow = nullptr;
-		MainShader = nullptr;
+	
 	}
 
 	bool Coco2::Coco2_StartEngine(int width, int height, const char* windowName) {
@@ -32,21 +33,21 @@ namespace Coco2Engine {
 		
 		std::cout << "Windows Hint setted" << std::endl;
 		
-		MainWindow = new Window();
+		SetMainWindow(new Window());
 		
-		if (!MainWindow) {
+		if (!GetMainWindow()) {
 			std::cout << "Failed to create Class Window" << std::endl;
 			return false;
 		}
 		
-		MainWindow->CreateWindow(width, height, windowName, NULL);
+		GetMainWindow()->CreateWindow(width, height, windowName, NULL);
 		
 		int bufferWidth;
 		int bufferHeight;
 		
-		glfwGetFramebufferSize(MainWindow->MainWindow, &bufferWidth, &bufferHeight);
+		glfwGetFramebufferSize(GetMainWindow()->MainWindow, &bufferWidth, &bufferHeight);
 
-		MainWindow->InitWindow();
+		GetMainWindow()->InitWindow();
 
 		glewExperimental = GL_TRUE;
 
@@ -61,16 +62,16 @@ namespace Coco2Engine {
 
 		glEnable(GL_DEPTH);
 
-		MainShader = new Shader();
-		if (!MainShader) {
+		SetMainShader(new Shader());
+		if (!GetMainShader()) {
 			std::cout << "Failed to create Class Shader" << std::endl;
 			return false;
 		}
 		
-		MainShader->CreateFromLocation("res/Shaders/vertex.shader", "res/Shaders/fragment.shader");
+		GetMainShader()->CreateFromLocation("res/Shaders/vertex.shader", "res/Shaders/fragment.shader");
 	
-		MainCamera = new Camera(Coco2_GetShader());
-		if (!MainCamera) {
+		SetMainCamera(new Camera());
+		if (!GetMainCamera()) {
 			std::cout << "Failed to create Class Camera" << std::endl;
 			return false;
 		}
@@ -79,7 +80,7 @@ namespace Coco2Engine {
 	}
 
 	void Coco2::Coco2_UpdateEngine() {
-		while (MainWindow->CheckIfWindowIsOpen()) {
+		while (GetMainWindow()->CheckIfWindowIsOpen()) {
 			float DeltaTime;
 			Timer::DeltaTime(DeltaTime);
 			Update(DeltaTime);
@@ -88,24 +89,24 @@ namespace Coco2Engine {
 	}
 
 	void Coco2::Coco2_EndEngine() {
-		if (MainWindow) {
-			delete MainWindow;
-			MainWindow = nullptr;
+		if (GetMainWindow()) {
+			delete GetMainWindow();
 		}
-		if (MainShader) {
-			MainShader->ClearShader();
-			delete MainShader;
-			MainShader = nullptr;
+		if (GetMainShader()) {
+			GetMainShader()->ClearShader();
+			delete GetMainShader();
 		}
-
+		if (GetMainCamera()) {
+			delete GetMainCamera();
+		}
 	}
 
 	void Coco2::Coco2_ClearWindow(float redColour, float greenColour, float blueColour) {
-		MainWindow->ClearWindow(redColour, greenColour, blueColour);
+		GetMainWindow()->ClearWindow(redColour, greenColour, blueColour);
 	}
 
 	void Coco2::Coco2_SwapBuffers() {
-		MainWindow->SwapBuffers();
+		GetMainWindow()->SwapBuffers();
 	}
 
 }

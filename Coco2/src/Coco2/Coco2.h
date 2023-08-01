@@ -9,16 +9,10 @@
 
 namespace Coco2Engine {
 
-	class Window;
-	class Camera;
-	class Shader;
-
 	class Coco2 {
 
 	private:
-		Window* MainWindow = nullptr;
-		Shader* MainShader = nullptr;
-		Camera* MainCamera = nullptr;
+
 	protected:
 		Coco2();
 
@@ -32,7 +26,6 @@ namespace Coco2Engine {
 
 		void Coco2_ClearWindow(float redColour, float greenColour, float  blueColour);
 		void Coco2_SwapBuffers();
-		Shader* Coco2_GetShader() const {return MainShader;}
 	public:
 
 	};

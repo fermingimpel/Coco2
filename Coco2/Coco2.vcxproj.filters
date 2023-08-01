@@ -85,6 +85,9 @@
     <ClCompile Include="src\Camera\Camera.cpp">
       <Filter>Source\Camera</Filter>
     </ClCompile>
+    <ClCompile Include="src\Extras\GameplayStatics.cpp">
+      <Filter>Source\Extras</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Window\Window.h">
@@ -122,6 +125,9 @@
     </ClInclude>
     <ClInclude Include="src\Camera\Camera.h">
       <Filter>Source\Camera</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Extras\GameplayStatics.h">
+      <Filter>Source\Extras</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

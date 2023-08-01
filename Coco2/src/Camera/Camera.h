@@ -5,7 +5,6 @@
 
 namespace Coco2Engine {
 
-
 	static class Camera : public EntityBase {
 
 	private:
@@ -27,7 +26,7 @@ namespace Coco2Engine {
 		void ReassignProjectionMatrix();
 
 	public:
-		Camera(Shader* ShaderToUse);
+		Camera();
 
 		void SetCameraFov(float Fov);
 		void SetCameraWidth(float Width);

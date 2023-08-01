@@ -12,7 +12,7 @@ namespace Coco2Engine {
 		virtual void SetVertexsAndIndex() override;
 
 	public:
-		Triangle(Shader* ShaderToUse);
+		Triangle();
 
 		virtual void Draw() override;
 	};

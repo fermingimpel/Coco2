@@ -2,10 +2,12 @@
 
 #include <glew/glew.h>
 #include <glfw/glfw3.h>
-
 #include <glm/gtc/type_ptr.hpp>
 
 #include <iostream>
+
+#include "Extras/GameplayStatics.h"
+#include "Shader/Shader.h"
 
 namespace Coco2Engine {
 
@@ -46,10 +48,10 @@ namespace Coco2Engine {
 		glBindBuffer(GL_ARRAY_BUFFER, 0);
 		glBindVertexArray(0);
 
-		UniformModelMatrix = glGetUniformLocation(EntityShader->GetShader(), "model");
-		UniformViewMatrix = glGetUniformLocation(EntityShader->GetShader(), "view");
-		UniformProjectionMatrix = glGetUniformLocation(EntityShader->GetShader(), "projection");
-		UniformUseTexture = glGetUniformLocation(EntityShader->GetShader(), "useTexture");
+		UniformModelMatrix = glGetUniformLocation(GetMainShader()->GetShader(), "model");
+		UniformViewMatrix = glGetUniformLocation(GetMainShader()->GetShader(), "view");
+		UniformProjectionMatrix = glGetUniformLocation(GetMainShader()->GetShader(), "projection");
+		UniformUseTexture = glGetUniformLocation(GetMainShader()->GetShader(), "useTexture");
 	}
 
 	void EntityBase::BindIndexs() {
@@ -69,7 +71,7 @@ namespace Coco2Engine {
 
 	void EntityBase::SetVertexsAndIndex() {}
 
-	EntityBase::EntityBase(Shader* ShaderToUse) {
+	EntityBase::EntityBase() {
 		ModelMatrix.model = glm::mat4(1.0f);
 		ModelMatrix.translate = glm::mat4(1.0f);
 		ModelMatrix.rotationX = glm::mat4(1.0f);
@@ -86,7 +88,6 @@ namespace Coco2Engine {
 		UpdateMatrixData();
 		UpdateTransformsData();
 
-		EntityShader = ShaderToUse;
 		HasTextureLoaded = false;
 	}
 

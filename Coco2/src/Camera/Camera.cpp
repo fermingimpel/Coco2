@@ -7,7 +7,7 @@ namespace Coco2Engine {
 		ProjectionMatrix = glm::perspective(glm::radians(Fov), Width / Height, Near, Far);
 	}
 
-	Camera::Camera(Shader* ShaderToUse) : EntityBase(nullptr) {
+	Camera::Camera() : EntityBase() {
 		Fov = 45.0f;
 		Width = 1366.0f;
 		Height = 768.0f;

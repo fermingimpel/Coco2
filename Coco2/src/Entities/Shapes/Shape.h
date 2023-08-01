@@ -10,7 +10,7 @@ namespace Coco2Engine {
 	protected:
 
 	public:
-		Shape(Shader* ShaderToUse);
+		Shape();
 
 	};
 

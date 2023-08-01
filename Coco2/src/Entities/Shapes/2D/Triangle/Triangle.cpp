@@ -5,6 +5,9 @@
 
 #include <iostream>
 
+#include "Extras/GameplayStatics.h"
+#include "Shader/Shader.h"
+
 namespace Coco2Engine {
 
 	void Triangle::SetVertexsAndIndex() {
@@ -16,14 +19,14 @@ namespace Coco2Engine {
 		};
 	}
 
-	Triangle::Triangle(Shader* ShaderToUse) : Shape(ShaderToUse) {
+	Triangle::Triangle() : Shape() {
 		SetVertexsAndIndex();
 		BindBuffers();
 		BindIndexs();
 	}
 
 	void Triangle::Draw() {
-		glUseProgram(EntityShader->GetShader());
+		glUseProgram(GetMainShader()->GetShader());
 		glBindVertexArray(VertexArrayObject);
 
 		UpdateMVP();
