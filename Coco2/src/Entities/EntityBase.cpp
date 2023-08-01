@@ -8,6 +8,7 @@
 
 #include "Extras/GameplayStatics.h"
 #include "Shader/Shader.h"
+#include "Camera/Camera.h"
 
 namespace Coco2Engine {
 
@@ -24,6 +25,8 @@ namespace Coco2Engine {
 
 	void EntityBase::UpdateMVP() {
 		glUniformMatrix4fv(UniformModelMatrix, 1, GL_FALSE, glm::value_ptr(ModelMatrix.model));
+		glUniformMatrix4fv(UniformViewMatrix, 1, GL_FALSE, glm::value_ptr(GetMainCamera()->GetViewMatrix()));
+		glUniformMatrix4fv(UniformProjectionMatrix, 1, GL_FALSE, glm::value_ptr(GetMainCamera()->GetProjectionMatrix()));
 	}
 
 	void EntityBase::BindBuffers() {

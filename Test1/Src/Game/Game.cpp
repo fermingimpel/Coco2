@@ -13,12 +13,12 @@ void Game::Start() {
 
 	TheTriangle = new Triangle();
 	TheTriangle->LoadTexture("res/Art/2D", "theolean.jpg");
-	TheTriangle->SetEntityPosition(Vector3(0.5f, 0, 0));
+	TheTriangle->SetEntityPosition(Vector3(2, 0, -5));
 
 	TheSquare = new Square();
 	TheSquare->LoadTexture("res/Art/2D", "theolean.jpg");
-	TheSquare->SetEntityPosition(Vector3(-0.5f, 0, 0));
-
+	TheSquare->SetEntityPosition(Vector3(-2, 0, -5));
+	TheSquare->SetEntityRotation(Vector3(0, 90, 0));
 }
 
 void Game::Update(float DeltaTime) {
@@ -26,7 +26,7 @@ void Game::Update(float DeltaTime) {
 
 	//TheTriangle->SetEntityPosition(TheTriangle->GetEntityPosition() + Vector3(0.01f, 0, 0));
 	TheTriangle->SetEntityRotation(TheTriangle->GetEntityRotationEuler() + Vector3(0, 0, 90 * DeltaTime));
-	TheSquare->SetEntityRotation(TheTriangle->GetEntityRotationEuler() + Vector3(0, 0, -90 * DeltaTime));
+	TheSquare->SetEntityRotation(TheSquare->GetEntityRotationEuler() + Vector3(0, 90 * DeltaTime, 0));
 
 	TheTriangle->Draw();
 	TheSquare->Draw();

@@ -34,6 +34,9 @@ namespace Coco2Engine {
 		glUseProgram(GetMainShader()->GetShader());
 		glBindVertexArray(VertexArrayObject);
 
+		glEnable(GL_DEPTH_TEST);
+
+
 		UpdateMVP();
 		glUniform1i(UniformUseTexture, HasTextureLoaded);
 
