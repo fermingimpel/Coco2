@@ -63,8 +63,6 @@ namespace Coco2Engine {
 		unsigned int VertexArrayObject;
 		unsigned int ElementBufferObject;
 
-		unsigned int UniformPosition;
-
 		virtual void BindBuffers();
 		virtual void BindIndexs();
 		virtual void SetVertexsAndIndex();

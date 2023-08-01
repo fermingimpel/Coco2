@@ -10,9 +10,9 @@ namespace Coco2Engine {
 	void Triangle::SetVertexsAndIndex() {
 		//Pos - Color - Texture Coords
 		EntityVertexs = {
-			-0.5f, -0.5f, 0.0f, /**/ 1.0f, 0.0f, 0.0f, /**/ 0.0f, 0.0f,
-			 0.5f, -0.5f, 0.0f,	/**/ 0.0f, 1.0f, 0.0f, /**/ 0.0f, 0.0f,
-			 0.0f,  0.5f, 0.0f,	/**/ 0.0f, 0.0f, 1.0f, /**/ 0.0f, 0.0f
+			-0.5f, -0.5f, 0.0f, /**/ 1.0f, 1.0f, 1.0f, /**/	0.0f, 0.0f,  // lower-left corner  
+			 0.5f, -0.5f, 0.0f,	/**/ 1.0f, 1.0f, 1.0f, /**/ 1.0f, 0.0f,  // lower-right corner
+			 0.0f,  0.5f, 0.0f,	/**/ 1.0f, 1.0f, 1.0f, /**/ 0.5f, 1.0f   // top-center corner
 		};
 	}
 
@@ -26,6 +26,9 @@ namespace Coco2Engine {
 		glUseProgram(EntityShader->GetShader());
 		glBindVertexArray(VertexArrayObject);
 
+		unsigned int useTextureUniform = glGetUniformLocation(EntityShader->GetShader(), "useTexture");
+		glUniform1i(useTextureUniform, HasTextureLoaded);
+
 		if (HasTextureLoaded) {
 			EntityTexture->StartUsingTexture();
 			glDrawArrays(GL_TRIANGLES, 0, 3);
@@ -34,10 +37,9 @@ namespace Coco2Engine {
 		else {
 			glDrawArrays(GL_TRIANGLES, 0, 3);
 		}
-
+		
 		glUseProgram(0);
 		glBindVertexArray(0);
-
 	}
 
 }

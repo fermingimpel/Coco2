@@ -12,9 +12,9 @@ void Game::Start() {
 	Coco2_StartEngine(800, 600, "Coco2");
 
 	TheTriangle = new Triangle(Coco2_GetShader());
-	TheTriangle->LoadTexture("res/Art/2D", "theolean.jpg");
 
 	TheSquare = new Square(Coco2_GetShader());
+	TheTriangle->LoadTexture("res/Art/2D", "theolean.jpg");
 }
 
 void Game::Update() {

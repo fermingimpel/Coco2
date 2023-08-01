@@ -8,10 +8,11 @@ namespace Coco2Engine {
 
 	void Square::SetVertexsAndIndex() {
 		EntityVertexs = {
-	0.5f, -0.5f, 0.0f,	/**/0.0f, 1.0f, 0.35f,	/**/ 1.0f, 1.0f,
-	0.5f,  0.5f, 0.0f,	/**/1.0f, 0.0f, 0.35f,	/**/ 1.0f, 0.0f, 
-	-0.5f, -0.5f, 0.0f,	/**/0.0f, 1.0f, 0.35f,	/**/ 0.0f, 0.0f,
-	-0.5f,  0.5f, 0.0f,	/**/1.0f, 0.0f, 0.35f, 	/**/ 0.0f, 1.0f
+			// positions          // colors           // texture coords
+				0.5f,  0.5f, 0.0f,   1.0f, 1.0f, 1.0f,   1.0f, 1.0f,   // top right
+				0.5f, -0.5f, 0.0f,   1.0f, 1.0f, 1.0f,   1.0f, 0.0f,   // bottom right
+			   -0.5f, -0.5f, 0.0f,   1.0f, 1.0f, 1.0f,   0.0f, 0.0f,   // bottom left
+			   -0.5f,  0.5f, 0.0f,   1.0f, 1.0f, 1.0f,   0.0f, 1.0f    // top left 
 		};
 
 		EntityIndexs = {
@@ -27,11 +28,17 @@ namespace Coco2Engine {
 	}
 
 	void Square::Draw() {
-
 		glUseProgram(EntityShader->GetShader());
 		glBindVertexArray(VertexArrayObject);
 
-		glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
+		if (HasTextureLoaded) {
+			EntityTexture->StartUsingTexture();
+			glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
+			EntityTexture->StopUsingTexture();
+		}
+		else {
+			glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
+		}
 
 		glUseProgram(0);
 		glBindVertexArray(0);
