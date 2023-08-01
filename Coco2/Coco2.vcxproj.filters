@@ -44,6 +44,9 @@
     <Filter Include="Source\Texture">
       <UniqueIdentifier>{3d750019-72c0-4a33-a6e8-98edb9bb13bd}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source\Timer">
+      <UniqueIdentifier>{3065c640-e688-4606-9f1e-cc10d48afe44}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Window\Window.cpp">
@@ -72,6 +75,9 @@
     </ClCompile>
     <ClCompile Include="src\Texture\Texture.cpp">
       <Filter>Source\Texture</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Timer\Timer.cpp">
+      <Filter>Source\Timer</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -104,6 +110,9 @@
     </ClInclude>
     <ClInclude Include="src\Texture\stb_image.h">
       <Filter>Source\Texture</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Timer\Timer.h">
+      <Filter>Source\Timer</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

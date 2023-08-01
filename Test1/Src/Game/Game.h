@@ -13,7 +13,7 @@ protected:
 	Triangle* TheTriangle;
 	Square* TheSquare;
 
-	void Update() override;
+	void Update(float DeltaTime) override;
 
 public:
 

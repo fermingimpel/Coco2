@@ -17,11 +17,12 @@ void Game::Start() {
 	TheTriangle->LoadTexture("res/Art/2D", "theolean.jpg");
 }
 
-void Game::Update() {
+void Game::Update(float DeltaTime) {
 	Coco2_ClearWindow(0.15, 0.15, 1.0f);
 
 	//TheTriangle->SetEntityPosition(TheTriangle->GetEntityPosition() + Vector3(0.01f, 0, 0));
-	//TheTriangle->SetEntityRotation(TheTriangle->GetEntityRotationEuler() + Vector3(0, 0, 1));
+	TheTriangle->SetEntityRotation(TheTriangle->GetEntityRotationEuler() + Vector3(0, 0, 90 * DeltaTime));
+
 	TheTriangle->Draw();
 	//TheSquare->Draw();
 

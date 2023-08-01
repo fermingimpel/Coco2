@@ -73,7 +73,9 @@ namespace Coco2Engine {
 
 	void Coco2::Coco2_UpdateEngine() {
 		while (MainWindow->CheckIfWindowIsOpen()) {
-			Update();
+			float DeltaTime;
+			Timer::DeltaTime(DeltaTime);
+			Update(DeltaTime);
 			glfwPollEvents();
 		}
 	}

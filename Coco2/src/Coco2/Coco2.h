@@ -6,6 +6,8 @@
 #include "Entities/Shapes/2D/Triangle/Triangle.h"
 #include "Entities/Shapes/2D/Square/Square.h"
 
+#include "Timer/Timer.h"
+
 namespace Coco2Engine {
 
 	class Window;
@@ -23,7 +25,7 @@ namespace Coco2Engine {
 		void Coco2_EndEngine();
 
 		virtual void Start() = 0;
-		virtual void Update() = 0;
+		virtual void Update(float DeltaTime) = 0;
 		virtual void End() = 0;
 
 		void Coco2_ClearWindow(float redColour, float greenColour, float  blueColour);
