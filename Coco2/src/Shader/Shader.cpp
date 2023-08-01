@@ -66,7 +66,7 @@ namespace Coco2Engine {
 
 		if (!result) {
 			glGetProgramInfoLog(theShader, sizeof(eLog), NULL, eLog);
-			std::cout << "Error compiling the " << type << " program: " << eLog << std::endl;
+			std::cout << "Error compiling the " << shaderCode << " program: " << eLog << std::endl;
 			return;
 		}
 		glAttachShader(program, theShader);

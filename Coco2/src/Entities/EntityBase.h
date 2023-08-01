@@ -50,6 +50,8 @@ namespace Coco2Engine {
 		void UpdateMatrixData();
 		void UpdateTransformsData();
 
+		void UpdateMVP();
+
 		// -x-
 
 		//Vertexs Things
@@ -62,6 +64,10 @@ namespace Coco2Engine {
 		unsigned int VertexBufferObject;
 		unsigned int VertexArrayObject;
 		unsigned int ElementBufferObject;
+
+		unsigned int UniformModelMatrix;
+		unsigned int UniformUseTexture; 
+
 
 		virtual void BindBuffers();
 		virtual void BindIndexs();

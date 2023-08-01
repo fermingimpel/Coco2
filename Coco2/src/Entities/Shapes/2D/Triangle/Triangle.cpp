@@ -26,8 +26,8 @@ namespace Coco2Engine {
 		glUseProgram(EntityShader->GetShader());
 		glBindVertexArray(VertexArrayObject);
 
-		unsigned int useTextureUniform = glGetUniformLocation(EntityShader->GetShader(), "useTexture");
-		glUniform1i(useTextureUniform, HasTextureLoaded);
+		UpdateMVP();
+		glUniform1i(UniformUseTexture, HasTextureLoaded);
 
 		if (HasTextureLoaded) {
 			EntityTexture->StartUsingTexture();

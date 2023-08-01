@@ -3,6 +3,8 @@
 #include <glew/glew.h>
 #include <glfw/glfw3.h>
 
+#include <glm/gtc/type_ptr.hpp>
+
 #include <iostream>
 
 namespace Coco2Engine {
@@ -16,6 +18,10 @@ namespace Coco2Engine {
 		transform.forward = Coco2_QuatXVec3(transform.rotationQuaternion, glm::vec3(0, 0, 1));
 		transform.up = Coco2_QuatXVec3(transform.rotationQuaternion, glm::vec3(0, 1, 0));
 		transform.right = Coco2_QuatXVec3(transform.rotationQuaternion, glm::vec3(1, 0, 0));
+	}
+
+	void EntityBase::UpdateMVP() {
+		glUniformMatrix4fv(UniformModelMatrix, 1, GL_FALSE, glm::value_ptr(matrix.model));
 	}
 
 	void EntityBase::BindBuffers() {
@@ -39,6 +45,9 @@ namespace Coco2Engine {
 
 		glBindBuffer(GL_ARRAY_BUFFER, 0);
 		glBindVertexArray(0);
+
+		UniformModelMatrix = glGetUniformLocation(EntityShader->GetShader(), "transform");
+		UniformUseTexture = glGetUniformLocation(EntityShader->GetShader(), "useTexture");
 	}
 
 	void EntityBase::BindIndexs() {

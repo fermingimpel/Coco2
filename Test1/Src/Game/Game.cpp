@@ -20,6 +20,8 @@ void Game::Start() {
 void Game::Update() {
 	Coco2_ClearWindow(0.15, 0.15, 1.0f);
 
+	//TheTriangle->SetEntityPosition(TheTriangle->GetEntityPosition() + Vector3(0.01f, 0, 0));
+	//TheTriangle->SetEntityRotation(TheTriangle->GetEntityRotationEuler() + Vector3(0, 0, 1));
 	TheTriangle->Draw();
 	//TheSquare->Draw();
 
