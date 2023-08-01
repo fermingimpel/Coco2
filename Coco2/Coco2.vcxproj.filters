@@ -41,6 +41,9 @@
     <Filter Include="Source\Shader">
       <UniqueIdentifier>{96475113-7bd2-480f-96e9-9a7d211f04a4}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source\Texture">
+      <UniqueIdentifier>{3d750019-72c0-4a33-a6e8-98edb9bb13bd}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Window\Window.cpp">
@@ -67,6 +70,9 @@
     <ClCompile Include="src\Shader\Shader.cpp">
       <Filter>Source\Shader</Filter>
     </ClCompile>
+    <ClCompile Include="src\Texture\Texture.cpp">
+      <Filter>Source\Texture</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Window\Window.h">
@@ -92,6 +98,12 @@
     </ClInclude>
     <ClInclude Include="src\Shader\Shader.h">
       <Filter>Source\Shader</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Texture\Texture.h">
+      <Filter>Source\Texture</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Texture\stb_image.h">
+      <Filter>Source\Texture</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

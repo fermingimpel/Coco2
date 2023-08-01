@@ -8,10 +8,10 @@ namespace Coco2Engine {
 
 	void Square::SetVertexsAndIndex() {
 		EntityVertexs = {
-	0.5f,  0.5f, 0.0f,		1.0f, 0.0f, 0.35f,
- 0.5f, -0.5f, 0.0f,			0.0f, 1.0f, 0.35f,
--0.5f, -0.5f, 0.0f,			0.0f, 1.0f, 0.35f,
--0.5f,  0.5f, 0.0f,			1.0f, 0.0f, 0.35f
+	0.5f, -0.5f, 0.0f,	/**/0.0f, 1.0f, 0.35f,	/**/ 1.0f, 1.0f,
+	0.5f,  0.5f, 0.0f,	/**/1.0f, 0.0f, 0.35f,	/**/ 1.0f, 0.0f, 
+	-0.5f, -0.5f, 0.0f,	/**/0.0f, 1.0f, 0.35f,	/**/ 0.0f, 0.0f,
+	-0.5f,  0.5f, 0.0f,	/**/1.0f, 0.0f, 0.35f, 	/**/ 0.0f, 1.0f
 		};
 
 		EntityIndexs = {
@@ -30,7 +30,9 @@ namespace Coco2Engine {
 
 		glUseProgram(EntityShader->GetShader());
 		glBindVertexArray(VertexArrayObject);
+
 		glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
+
 		glUseProgram(0);
 		glBindVertexArray(0);
 

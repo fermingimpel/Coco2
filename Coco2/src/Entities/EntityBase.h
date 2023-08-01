@@ -4,6 +4,8 @@
 #include "Extras/Coco2Maths.h"
 
 #include "Shader/Shader.h"
+
+#include "Texture/Texture.h"
 		
 #include <vector>
 
@@ -34,10 +36,23 @@ namespace Coco2Engine {
 		};
 
 	protected:
+		//Visuals
 		Shader* EntityShader;
+		Texture* EntityTexture;
+		bool HasTextureLoaded;
+
+		// -x-
+
+		//Transforms
 		Transform transform;
 		Matrix matrix;
 
+		void UpdateMatrixData();
+		void UpdateTransformsData();
+
+		// -x-
+
+		//Vertexs Things
 		std::vector<float> EntityVertexs;
 		std::vector<unsigned int> EntityIndexs;
 
@@ -50,15 +65,17 @@ namespace Coco2Engine {
 
 		unsigned int UniformPosition;
 
-		void UpdateMatrixData();
-		void UpdateTransformsData();
-
 		virtual void BindBuffers();
 		virtual void BindIndexs();
 		virtual void SetVertexsAndIndex();
+
+		//-x-
+
 	public:
 		EntityBase(Shader* ShaderToUse);
 		~EntityBase();
+
+		//Transforms
 
 		Vector3 GetEntityPosition() const { return transform.position; }
 		Quaternion GetEntityRotationQuat() const { return transform.rotationQuaternion; }
@@ -73,6 +90,10 @@ namespace Coco2Engine {
 		void SetEntityRotation(Vector3 NewRotation);
 		void SetEntityScale(Vector3 NewScale);
 
+		// -x-
+
+		//Visuals
+		void LoadTexture(std::string TexturePath, std::string TextureName);
 		virtual void Draw() = 0;
 	};
 

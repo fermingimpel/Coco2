@@ -28,12 +28,16 @@ namespace Coco2Engine {
 		glBindBuffer(GL_ARRAY_BUFFER, VertexBufferObject);
 
 		glBufferData(GL_ARRAY_BUFFER, EntityVertexs.size() * sizeof(float), &EntityVertexs.front(), GL_STATIC_DRAW);
-		glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(float), (void*)0);
+		glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 8 * sizeof(float), (void*)0);
 		glEnableVertexAttribArray(0);
 
 		glBufferData(GL_ARRAY_BUFFER, EntityVertexs.size() * sizeof(float), &EntityVertexs.front(), GL_STATIC_DRAW);
-		glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(float), (void*)(3 * sizeof(float)));
+		glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 8 * sizeof(float), (void*)(3 * sizeof(float)));
 		glEnableVertexAttribArray(1);
+
+		glBufferData(GL_ARRAY_BUFFER, EntityVertexs.size() * sizeof(float), &EntityVertexs.front(), GL_STATIC_DRAW);
+		glVertexAttribPointer(2, 2, GL_FLOAT, GL_FALSE, 8 * sizeof(float), (void*)(6 * sizeof(float)));
+		glEnableVertexAttribArray(2);
 
 		glBindBuffer(GL_ARRAY_BUFFER, 0);
 		glBindVertexArray(0);
@@ -74,10 +78,13 @@ namespace Coco2Engine {
 		UpdateTransformsData();
 
 		EntityShader = ShaderToUse;
+		HasTextureLoaded = false;
 	}
 
 	EntityBase::~EntityBase() {
-	
+		if (EntityTexture) {
+			delete EntityTexture;
+		}
 	}
 
 	void EntityBase::SetEntityPosition(Vector3 NewPosition) {
@@ -101,6 +108,16 @@ namespace Coco2Engine {
 		transform.scale = NewScale;
 		matrix.scale = glm::scale(glm::mat4(1.0f), transform.scale);
 		UpdateMatrixData();
+	}
+
+	void EntityBase::LoadTexture(std::string TexturePath, std::string TextureName) {
+		if (!EntityTexture) {
+			EntityTexture = new Texture();
+		}
+
+		if (EntityTexture) {
+			HasTextureLoaded = EntityTexture->LoadTexture(TexturePath, TextureName);
+		}
 	}
 
 }
