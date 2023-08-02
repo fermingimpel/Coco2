@@ -12,6 +12,7 @@
 #include "Window/Window.h"
 #include "Shader/Shader.h"
 #include "Camera/Camera.h"
+#include "Input/Input.h"
 
 namespace Coco2Engine {
 

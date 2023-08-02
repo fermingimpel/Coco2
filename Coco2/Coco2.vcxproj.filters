@@ -50,6 +50,9 @@
     <Filter Include="Source\Camera">
       <UniqueIdentifier>{e4df133f-6033-496b-8e25-e551667dba85}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source\Input">
+      <UniqueIdentifier>{9b24bcc2-b713-49ee-926d-f79db5731900}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Window\Window.cpp">
@@ -87,6 +90,9 @@
     </ClCompile>
     <ClCompile Include="src\Extras\GameplayStatics.cpp">
       <Filter>Source\Extras</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Input\Input.cpp">
+      <Filter>Source\Input</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -128,6 +134,9 @@
     </ClInclude>
     <ClInclude Include="src\Extras\GameplayStatics.h">
       <Filter>Source\Extras</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Input\Input.h">
+      <Filter>Source\Input</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

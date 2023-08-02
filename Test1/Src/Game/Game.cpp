@@ -32,7 +32,13 @@ void Game::Update(float DeltaTime) {
 	TheTriangle->Draw();
 	TheSquare->Draw();
 
-	Coco2_GetMainCamera()->SetEntityPosition(Coco2_GetMainCamera()->GetEntityPosition() + Vector3(DeltaTime,0,0));
+	if (GetKeyDown(Keycode::A)) {
+		Coco2_GetMainCamera()->SetEntityPosition(Coco2_GetMainCamera()->GetEntityPosition() - Vector3(DeltaTime, 0, 0));
+	}
+	else if (GetKeyDown(Keycode::D)) {
+		Coco2_GetMainCamera()->SetEntityPosition(Coco2_GetMainCamera()->GetEntityPosition() + Vector3(DeltaTime, 0, 0));
+	}
+
 
 	Coco2_SwapBuffers();
 }

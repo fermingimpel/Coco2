@@ -27,6 +27,7 @@
     <ClCompile Include="src\Entities\Shapes\Shape.cpp" />
     <ClCompile Include="src\Extras\Coco2Maths.cpp" />
     <ClCompile Include="src\Extras\GameplayStatics.cpp" />
+    <ClCompile Include="src\Input\Input.cpp" />
     <ClCompile Include="src\Shader\Shader.cpp" />
     <ClCompile Include="src\Texture\Texture.cpp" />
     <ClCompile Include="src\Timer\Timer.cpp" />
@@ -41,6 +42,7 @@
     <ClInclude Include="src\Entities\Shapes\Shape.h" />
     <ClInclude Include="src\Extras\Coco2Maths.h" />
     <ClInclude Include="src\Extras\GameplayStatics.h" />
+    <ClInclude Include="src\Input\Input.h" />
     <ClInclude Include="src\Shader\Shader.h" />
     <ClInclude Include="src\Texture\stb_image.h" />
     <ClInclude Include="src\Texture\Texture.h" />
