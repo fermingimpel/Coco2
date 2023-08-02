@@ -31,7 +31,7 @@ namespace Coco2Engine {
 	}
 
 	void Square::Draw() {
-		glUseProgram(GetMainShader()->GetShader());
+		glUseProgram(Coco2_GetMainShader()->GetShader());
 		glBindVertexArray(VertexArrayObject);
 
 		glEnable(GL_DEPTH_TEST);

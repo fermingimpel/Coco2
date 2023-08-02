@@ -7,13 +7,13 @@ namespace Coco2Engine {
 	class Shader;
 	class Window;
 
-	extern void SetMainCamera(Camera* Cam);
-	extern void SetMainShader(Shader* Shad);
-	extern void SetMainWindow(Window* Wind);
+	extern void Coco2_SetMainCamera(Camera* Cam);
+	extern void Coco2_SetMainShader(Shader* Shad);
+	extern void Coco2_SetMainWindow(Window* Wind);
 
-	extern Camera* GetMainCamera();
-	extern Shader* GetMainShader();
-	extern Window* GetMainWindow();
+	extern Camera* Coco2_GetMainCamera();
+	extern Shader* Coco2_GetMainShader();
+	extern Window* Coco2_GetMainWindow();
 }
 
 #endif

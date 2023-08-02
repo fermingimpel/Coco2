@@ -1,5 +1,10 @@
 #include "Camera.h"
 
+#include <glew/glew.h>
+
+#include "Extras/GameplayStatics.h"
+#include "Shader/Shader.h"
+
 namespace Coco2Engine {
 	void Camera::Draw() {}
 
@@ -16,6 +21,22 @@ namespace Coco2Engine {
 		ReassignProjectionMatrix();
 
 		ViewMatrix = glm::mat4(1.0f);
+
+		UniformEyePosition = glGetUniformLocation(Coco2_GetMainShader()->GetShader(), "EyePosition");
+		UpdateLookAt();
+
+		SetEntityRotation(Vector3(0, 180, 0));
+	}
+
+	void Camera::SetEntityPosition(Vector3 NewPosition) {
+		EntityBase::SetEntityPosition(NewPosition);
+		UpdateLookAt();
+		UpdateEyePosition();
+	}
+
+	void Camera::SetEntityRotation(Vector3 NewRotation) {
+		EntityBase::SetEntityRotation(NewRotation);
+		UpdateLookAt();
 	}
 
 	void Camera::SetCameraFov(float Fov) {
@@ -41,6 +62,16 @@ namespace Coco2Engine {
 	void Camera::SetCameraFar(float Far) {
 		this->Far = Far;
 		ReassignProjectionMatrix();
+	}
+
+	void Camera::UpdateLookAt() {
+		ViewMatrix = glm::lookAt(transform.position, transform.position + transform.forward, Vector3(0, 1, 0));
+	}
+
+	void Camera::UpdateEyePosition() {
+		glUseProgram(Coco2_GetMainShader()->GetShader());
+		glUniform3f(UniformEyePosition, transform.position.x, transform.position.y, transform.position.z);
+		glUseProgram(0);
 	}
 
 }

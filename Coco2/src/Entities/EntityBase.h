@@ -89,9 +89,9 @@ namespace Coco2Engine {
 		Vector3 GetEntityUpVector() const { return transform.up; }
 		Vector3 GetEntityRightVector() const { return transform.right;  }
 
-		void SetEntityPosition(Vector3 NewPosition);
-		void SetEntityRotation(Vector3 NewRotation);
-		void SetEntityScale(Vector3 NewScale);
+		virtual void SetEntityPosition(Vector3 NewPosition);
+		virtual void SetEntityRotation(Vector3 NewRotation);
+		virtual void SetEntityScale(Vector3 NewScale);
 
 		// -x-
 

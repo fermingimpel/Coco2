@@ -7,6 +7,9 @@ in vec2 TexCoord;
 uniform sampler2D ourTexture;
 uniform bool useTexture;
 
+uniform vec3 EyePosition;
+
+
 void main(){
     if(useTexture)
         FragColour = texture(ourTexture, TexCoord) * vec4(ourColour, 1.0);

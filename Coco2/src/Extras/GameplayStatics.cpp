@@ -11,22 +11,22 @@ namespace Coco2Engine {
 	Window* MainWindow = nullptr;
 
 
-	void SetMainCamera(Camera* Cam) {
+	void Coco2_SetMainCamera(Camera* Cam) {
 		MainCamera = Cam;
 	}
-	void SetMainShader(Shader* Shad) {
+	void Coco2_SetMainShader(Shader* Shad) {
 		MainShader = Shad;
 	}
-	void SetMainWindow(Window* Wind) {
+	void Coco2_SetMainWindow(Window* Wind) {
 		MainWindow = Wind;
 	}
-	Camera* GetMainCamera() {
+	Camera* Coco2_GetMainCamera() {
 		return MainCamera;
 	}
-	Shader* GetMainShader() {
+	Shader* Coco2_GetMainShader() {
 		return MainShader;
 	}
-	Window* GetMainWindow() {
+	Window* Coco2_GetMainWindow() {
 		return MainWindow;
 	}
 }

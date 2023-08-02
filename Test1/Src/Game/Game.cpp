@@ -19,6 +19,7 @@ void Game::Start() {
 	TheSquare->LoadTexture("res/Art/2D", "theolean.jpg");
 	TheSquare->SetEntityPosition(Vector3(-2, 0, -5));
 	TheSquare->SetEntityRotation(Vector3(0, 90, 0));
+
 }
 
 void Game::Update(float DeltaTime) {
@@ -30,6 +31,8 @@ void Game::Update(float DeltaTime) {
 
 	TheTriangle->Draw();
 	TheSquare->Draw();
+
+	Coco2_GetMainCamera()->SetEntityPosition(Coco2_GetMainCamera()->GetEntityPosition() + Vector3(DeltaTime,0,0));
 
 	Coco2_SwapBuffers();
 }

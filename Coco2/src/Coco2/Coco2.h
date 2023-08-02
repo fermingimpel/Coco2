@@ -7,6 +7,12 @@
 
 #include "Timer/Timer.h"
 
+#include "Extras/GameplayStatics.h"
+
+#include "Window/Window.h"
+#include "Shader/Shader.h"
+#include "Camera/Camera.h"
+
 namespace Coco2Engine {
 
 	class Coco2 {

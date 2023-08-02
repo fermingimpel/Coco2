@@ -22,11 +22,17 @@ namespace Coco2Engine {
 
 		unsigned int UniformViewMatrix;
 		unsigned int UniformProjectionMatrix;
+		unsigned int UniformEyePosition;
 
 		void ReassignProjectionMatrix();
 
+		void UpdateLookAt();
+		void UpdateEyePosition();
 	public:
 		Camera();
+
+		virtual void SetEntityPosition(Vector3 NewPosition) override;
+		virtual void SetEntityRotation(Vector3 NewRotation) override;
 
 		void SetCameraFov(float Fov);
 		void SetCameraWidth(float Width);
@@ -36,6 +42,7 @@ namespace Coco2Engine {
 
 		Matrix4x4 GetViewMatrix() const {return ViewMatrix;	}
 		Matrix4x4 GetProjectionMatrix() const { return ProjectionMatrix; }
+
 	};
 
 }

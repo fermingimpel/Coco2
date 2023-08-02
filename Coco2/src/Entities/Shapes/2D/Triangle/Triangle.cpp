@@ -26,7 +26,7 @@ namespace Coco2Engine {
 	}
 
 	void Triangle::Draw() {
-		glUseProgram(GetMainShader()->GetShader());
+		glUseProgram(Coco2_GetMainShader()->GetShader());
 		glBindVertexArray(VertexArrayObject);
 
 		glEnable(GL_DEPTH_TEST);

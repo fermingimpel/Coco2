@@ -25,8 +25,8 @@ namespace Coco2Engine {
 
 	void EntityBase::UpdateMVP() {
 		glUniformMatrix4fv(UniformModelMatrix, 1, GL_FALSE, glm::value_ptr(ModelMatrix.model));
-		glUniformMatrix4fv(UniformViewMatrix, 1, GL_FALSE, glm::value_ptr(GetMainCamera()->GetViewMatrix()));
-		glUniformMatrix4fv(UniformProjectionMatrix, 1, GL_FALSE, glm::value_ptr(GetMainCamera()->GetProjectionMatrix()));
+		glUniformMatrix4fv(UniformViewMatrix, 1, GL_FALSE, glm::value_ptr(Coco2_GetMainCamera()->GetViewMatrix()));
+		glUniformMatrix4fv(UniformProjectionMatrix, 1, GL_FALSE, glm::value_ptr(Coco2_GetMainCamera()->GetProjectionMatrix()));
 	}
 
 	void EntityBase::BindBuffers() {
@@ -51,10 +51,10 @@ namespace Coco2Engine {
 		glBindBuffer(GL_ARRAY_BUFFER, 0);
 		glBindVertexArray(0);
 
-		UniformModelMatrix = glGetUniformLocation(GetMainShader()->GetShader(), "model");
-		UniformViewMatrix = glGetUniformLocation(GetMainShader()->GetShader(), "view");
-		UniformProjectionMatrix = glGetUniformLocation(GetMainShader()->GetShader(), "projection");
-		UniformUseTexture = glGetUniformLocation(GetMainShader()->GetShader(), "useTexture");
+		UniformModelMatrix = glGetUniformLocation(Coco2_GetMainShader()->GetShader(), "model");
+		UniformViewMatrix = glGetUniformLocation(Coco2_GetMainShader()->GetShader(), "view");
+		UniformProjectionMatrix = glGetUniformLocation(Coco2_GetMainShader()->GetShader(), "projection");
+		UniformUseTexture = glGetUniformLocation(Coco2_GetMainShader()->GetShader(), "useTexture");
 	}
 
 	void EntityBase::BindIndexs() {
