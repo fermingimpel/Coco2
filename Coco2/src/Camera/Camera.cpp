@@ -26,6 +26,9 @@ namespace Coco2Engine {
 		UpdateLookAt();
 
 		SetEntityRotation(Vector3(0, 180, 0));
+
+		BasePosition = GetEntityPosition();
+		BaseRotation = GetEntityRotationEuler();
 	}
 
 	void Camera::SetEntityPosition(Vector3 NewPosition) {
@@ -62,6 +65,11 @@ namespace Coco2Engine {
 	void Camera::SetCameraFar(float Far) {
 		this->Far = Far;
 		ReassignProjectionMatrix();
+	}
+
+	void Camera::ResetCamera() {
+		SetEntityPosition(BasePosition);
+		SetEntityRotation(BaseRotation);
 	}
 
 	void Camera::UpdateLookAt() {

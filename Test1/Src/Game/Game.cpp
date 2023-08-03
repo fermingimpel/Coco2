@@ -31,7 +31,7 @@ void Game::Update(float DeltaTime) {
 
 	//TheTriangle->SetEntityPosition(TheTriangle->GetEntityPosition() + Vector3(0.01f, 0, 0));
 	//TheTriangle->SetEntityRotation(TheTriangle->GetEntityRotationEuler() + Vector3(0, 0, 90 * DeltaTime));
-	//TheSquare->SetEntityRotation(TheSquare->GetEntityRotationEuler() + Vector3(0, 90 * DeltaTime, 0));
+	//TheSquare->AddEntityRotation(Vector3(0, 0, 90 * DeltaTime));
 
 	TheTriangle->Draw();
 	TheSquare->Draw();
@@ -52,12 +52,22 @@ void Game::Update(float DeltaTime) {
 		Coco2_GetMainCamera()->AddEntityPosition(- Coco2_GetMainCamera()->GetEntityForwardVector() * DeltaTime * 3.0f);
 	}
 
+	if (GetKeyDown(Keycode::SPACE)) {
+		Coco2_GetMainCamera()->AddEntityPosition(Coco2_GetMainCamera()->GetEntityUpVector() * DeltaTime * 3.0f);
+	}
+	else if (GetKeyDown(Keycode::LEFT_SHIFT)) {
+		Coco2_GetMainCamera()->AddEntityPosition(-Coco2_GetMainCamera()->GetEntityUpVector() * DeltaTime * 3.0f);
+	}
+
 	if (GetKeyDown(Keycode::Q)) {
 		Coco2_GetMainCamera()->AddEntityRotation(Vector3(0, 90 * DeltaTime, 0));
 	}
 	else if (GetKeyDown(Keycode::E)) {
 		Coco2_GetMainCamera()->AddEntityRotation(Vector3(0, -90 * DeltaTime, 0));
+	}
 
+	if (GetKeyDown(Keycode::ESCAPE)) {
+		Coco2_GetMainCamera()->ResetCamera();
 	}
 
 

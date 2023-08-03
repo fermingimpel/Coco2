@@ -28,6 +28,10 @@ namespace Coco2Engine {
 
 		void UpdateLookAt();
 		void UpdateEyePosition();
+
+		Vector3 BasePosition;
+		Vector3 BaseRotation;
+
 	public:
 		Camera();
 
@@ -39,6 +43,8 @@ namespace Coco2Engine {
 		void SetCameraHeight(float Height);
 		void SetCameraNear(float Near);
 		void SetCameraFar(float Far);
+
+		void ResetCamera();
 
 		Matrix4x4 GetViewMatrix() const {return ViewMatrix;	}
 		Matrix4x4 GetProjectionMatrix() const { return ProjectionMatrix; }
