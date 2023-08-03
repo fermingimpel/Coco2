@@ -107,6 +107,10 @@ namespace Coco2Engine {
 		UpdateMatrixData();
 	}
 
+	void EntityBase::AddEntityPosition(Vector3 ExtraPosition) {
+		SetEntityPosition(transform.position + ExtraPosition);
+	}
+
 	void EntityBase::SetEntityRotation(Vector3 NewRotation) {
 		transform.rotation = NewRotation;
 
@@ -118,10 +122,18 @@ namespace Coco2Engine {
 		UpdateTransformsData();
 	}
 
+	void EntityBase::AddEntityRotation(Vector3 ExtraRotation) {
+		SetEntityRotation(transform.rotation + ExtraRotation);
+	}
+
 	void EntityBase::SetEntityScale(Vector3 NewScale) {
 		transform.scale = NewScale;
 		ModelMatrix.scale = glm::scale(glm::mat4(1.0f), transform.scale);
 		UpdateMatrixData();
+	}
+
+	void EntityBase::AddEntityScale(Vector3 ExtraScale) {
+		SetEntityScale(transform.scale + ExtraScale);
 	}
 
 	void EntityBase::LoadTexture(std::string TexturePath, std::string TextureName) {

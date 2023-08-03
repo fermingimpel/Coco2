@@ -93,6 +93,11 @@ namespace Coco2Engine {
 		virtual void SetEntityRotation(Vector3 NewRotation);
 		virtual void SetEntityScale(Vector3 NewScale);
 
+
+		virtual void AddEntityPosition(Vector3 ExtraPosition);
+		virtual void AddEntityRotation(Vector3 ExtraRotation);
+		virtual void AddEntityScale(Vector3 ExtraScale);
+
 		// -x-
 
 		//Visuals
