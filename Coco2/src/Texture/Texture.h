@@ -9,16 +9,18 @@ namespace Coco2Engine {
 
 	private:
 		unsigned int TextureID;
+		unsigned char* TextureData;
+
+	public:
 		int TextureWidth;
 		int TextureHeight;
 		int TextureBitDepth;
 		int TextureChannels;
-		unsigned char* TextureData;
+
 		std::string TexturePath;
 		std::string TextureName;
 		bool Transparent;
 
-	public:
 		Texture();
 		~Texture();
 

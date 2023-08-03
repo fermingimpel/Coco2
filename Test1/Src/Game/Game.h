@@ -12,6 +12,7 @@ private:
 protected:
 	Triangle* TheTriangle;
 	Square* TheSquare;
+	Sprite* TheSprite;
 
 	void Update(float DeltaTime) override;
 

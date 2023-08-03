@@ -35,6 +35,7 @@ namespace Coco2Engine {
 
 		glGenVertexArrays(1, &VertexArrayObject);
 		glGenBuffers(1, &VertexBufferObject);
+
 		glBindVertexArray(VertexArrayObject);
 		glBindBuffer(GL_ARRAY_BUFFER, VertexBufferObject);
 

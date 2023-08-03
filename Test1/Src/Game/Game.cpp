@@ -18,7 +18,11 @@ void Game::Start() {
 	TheSquare = new Square();
 	TheSquare->LoadTexture("res/Art/2D", "theolean.jpg");
 	TheSquare->SetEntityPosition(Vector3(-2, 0, -5));
-	TheSquare->SetEntityRotation(Vector3(0, 90, 0));
+	//TheSquare->SetEntityRotation(Vector3(0, 90, 0));
+
+	TheSprite = new Sprite("res/Art/2D", "sprite2.png");
+	TheSprite->CreateNewAnimation(8, 4, 4,0.1f, 8, "RunDown");
+	TheSprite->SetEntityPosition(Vector3(-2, 0, -5));
 
 }
 
@@ -26,11 +30,13 @@ void Game::Update(float DeltaTime) {
 	Coco2_ClearWindow(0.15, 0.15, 1.0f);
 
 	//TheTriangle->SetEntityPosition(TheTriangle->GetEntityPosition() + Vector3(0.01f, 0, 0));
-	TheTriangle->SetEntityRotation(TheTriangle->GetEntityRotationEuler() + Vector3(0, 0, 90 * DeltaTime));
-	TheSquare->SetEntityRotation(TheSquare->GetEntityRotationEuler() + Vector3(0, 90 * DeltaTime, 0));
+	//TheTriangle->SetEntityRotation(TheTriangle->GetEntityRotationEuler() + Vector3(0, 0, 90 * DeltaTime));
+	//TheSquare->SetEntityRotation(TheSquare->GetEntityRotationEuler() + Vector3(0, 90 * DeltaTime, 0));
 
-	TheTriangle->Draw();
-	TheSquare->Draw();
+	//TheTriangle->Draw();
+	//TheSquare->Draw();
+
+	TheSprite->Draw();
 
 	if (GetKeyDown(Keycode::A)) {
 		Coco2_GetMainCamera()->SetEntityPosition(Coco2_GetMainCamera()->GetEntityPosition() - Vector3(DeltaTime, 0, 0));
@@ -48,4 +54,5 @@ void Game::End() {
 
 	delete TheSquare;
 	delete TheTriangle;
+	delete TheSprite;
 }

@@ -4,6 +4,7 @@
 #include "Extras/Coco2Maths.h"
 #include "Entities/Shapes/2D/Triangle/Triangle.h"
 #include "Entities/Shapes/2D/Square/Square.h"
+#include "Entities/Shapes/2D/Sprite/Sprite.h"
 
 #include "Timer/Timer.h"
 

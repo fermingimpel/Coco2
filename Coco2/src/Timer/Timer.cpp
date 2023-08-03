@@ -4,12 +4,16 @@
 
 namespace Coco2Engine {
 
-	double oldT = clock();
-	void Timer::DeltaTime(float& time) {
+	float oldTime = clock();
+	float dt = 0;
+	void Timer::UpdateDeltaTime() {
 		double t = clock();
-		float dt = (float)((t - oldT) / 1000.0f);
-		oldT = t;
-		time = dt;
+		dt = (float)((t - oldTime) / 1000.0f);
+		oldTime = t;
+	}
+
+	float Timer::GetDeltaTime() {
+		return dt;
 	}
 
 }

@@ -1,4 +1,6 @@
-#pragma once
+#ifndef SQUARE_H
+#define SQUARE_H
+
 #include "Entities/Shapes/Shape.h"
 
 namespace Coco2Engine {
@@ -19,3 +21,5 @@ namespace Coco2Engine {
     };
 
 }
+
+#endif

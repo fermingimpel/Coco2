@@ -36,10 +36,8 @@ namespace Coco2Engine {
 
 		glEnable(GL_DEPTH_TEST);
 
-
 		UpdateMVP();
 		glUniform1i(UniformUseTexture, HasTextureLoaded);
-
 
 		if (HasTextureLoaded) {
 			EntityTexture->StartUsingTexture();

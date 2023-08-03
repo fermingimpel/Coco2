@@ -53,6 +53,9 @@
     <Filter Include="Source\Input">
       <UniqueIdentifier>{9b24bcc2-b713-49ee-926d-f79db5731900}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source\Entities\EntityBase\Shapes\2D\Sprite">
+      <UniqueIdentifier>{ead22a7e-92ac-4a37-81d7-5a0288ab38c5}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Window\Window.cpp">
@@ -93,6 +96,12 @@
     </ClCompile>
     <ClCompile Include="src\Input\Input.cpp">
       <Filter>Source\Input</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Texture\TextureAnimation.cpp">
+      <Filter>Source\Texture</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Entities\Shapes\2D\Sprite\Sprite.cpp">
+      <Filter>Source\Entities\EntityBase\Shapes\2D\Sprite</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -137,6 +146,12 @@
     </ClInclude>
     <ClInclude Include="src\Input\Input.h">
       <Filter>Source\Input</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Texture\TextureAnimation.h">
+      <Filter>Source\Texture</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Entities\Shapes\2D\Sprite\Sprite.h">
+      <Filter>Source\Entities\EntityBase\Shapes\2D\Sprite</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

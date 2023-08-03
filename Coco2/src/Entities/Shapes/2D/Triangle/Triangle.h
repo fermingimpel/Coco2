@@ -1,4 +1,7 @@
-#pragma once
+#ifndef TRIANGLE_H
+#define TRIANGLE_H
+
+
 #include "Entities/Shapes/Shape.h"
 
 namespace Coco2Engine {
@@ -19,3 +22,5 @@ namespace Coco2Engine {
 
 
 }
+
+#endif

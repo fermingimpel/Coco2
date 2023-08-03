@@ -5,7 +5,8 @@ namespace Coco2Engine {
 
 	class Timer {
 	public:
-		static void DeltaTime(float& time);
+		static void UpdateDeltaTime();
+		static float GetDeltaTime();
 	};
 
 }
